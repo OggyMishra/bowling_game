@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bowling Exercise</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="./assets/js/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/js/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="./assets/css/styles.css" rel="stylesheet">
+    <script data-main="./assets/js/bowling_require_main.js" src="./assets/js/vendor/requirejs/require.js"></script>
+</head>
+
+<body>
+    <header id="headerArea">
+        <section id="user-message-section"></section>
+    </header>
+    <section id="landingPage"></section>
+    <section id="bowlingView"></section>
+    <!-- script references -->
+    <script src="./assets/js/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <div class="container-full">
+    </div>
+    <div id="AddUserModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add User</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="col-lg-12">
+                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                            <input id="addUserIdTxt" class="form-control input-lg" placeholder="Enter your User Id" type="text">
+                            <input id="addUserNameTxt" class="form-control input-lg" placeholder="Enter your Name" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnAddUser" class="btn btn-primary">Add User</button>
+                    <button type="button" id="modalBtnCancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="RemoveUserModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="modalBtnClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">Remove User</h4>
+                </div>
+                <form class="col-lg-12">
+                    <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                        <input id="removeUserIdTxt" class="form-control input-lg" placeholder="Enter your User Id" type="text">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnDelete" class="btn btn-primary">Delete</button>
+                    <button type="button" id="modalBtnCancel" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="PlayGameModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="modalBtnClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">Play Game</h4>
+                </div>
+                <form class="col-lg-12">
+                    <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                        <input id="playGameUserIdTxt" class="form-control input-lg" placeholder="Enter your User Id" type="text">
+                        <input id="playGamePinsKnockDownTxt" class="form-control input-lg" placeholder="Enter pins knock down " type="text">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnSave" class="btn btn-primary">Save</button>
+                    <button type="button" id="modalBtnNo" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="RealTimePlayModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="modalBtnClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="col-lg-12">
+                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                            <input id="realTimePlayUserIdTxt" class="form-control input-lg" placeholder="Enter your User Id" type="text">
+                            <input id="realTimePlayPinsDownTxt" class="form-control input-lg" placeholder="Enter pins knock down " type="text">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnRealPlay" class="btn btn-primary">Yes</button>
+                    <button type="button" id="modalBtnNo" class="btn btn-default" data-dismiss="modal">No</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="GetScoreModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="modalBtnClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">Score Status</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="col-lg-12">
+                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                            <input id="scoreBtnUserIdTxt" class="form-control input-lg" placeholder="Enter your User Id" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnShowScore" class="btn btn-primary">GetScore</button>
+                    <button type="button" id="modalBtnNo" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ResultView" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" id="modalBtnClose" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                    </button>
+                    <h4 class="modal-title">Result Window</h4>
+                </div>
+                <div id="resultView" class="modal-body" />
+                <div class="modal-footer">
+                    <button type="button" id="modalBtnNo" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

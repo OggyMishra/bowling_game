@@ -1,0 +1,14 @@
+{
+"app": {
+        "development": "http://localhost:8080/"
+    },
+"urls": {
+        "api": {
+            "add_user": "api/addNewUser",
+            "delete_user": "api/deleteUser",
+            "play_game": "api/play",
+            "get_score": "api/score",
+            "real_time_play": "api/realtimeplay"
+        }
+    }
+}
